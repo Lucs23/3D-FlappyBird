@@ -17,15 +17,16 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
+        rb.useGravity = false;
     }
 
     void FixedUpdate()
     {
         position = transform.position;
         Vector3 viewPos = cam.WorldToViewportPoint(position);
-        // Vector3 worldPos = cam.ViewportToWorldPoint(position);
+        if(Time.time > 2) rb.useGravity = true;
 
+        //Maak van deze dingen een functie!
         if (viewPos.x > 1)//Right
         {
             Vector3 RightX = new Vector3(1, viewPos.y, viewPos.z);
@@ -53,16 +54,17 @@ public class PlayerMovement : MonoBehaviour
             rb.transform.position = cam.ViewportToWorldPoint(UpY);
             rb.linearVelocity = velocity;
         }
-
     }
 
     void OnJump()
     {
         rb.AddForce(0, JumpPower, 0, ForceMode.VelocityChange);
+        rb.useGravity = true;
     }
 
     void OnMove(InputValue value)
     {
+        rb.useGravity = true;
         float x = value.Get<float>();
         rb.AddForce(x * MovePower, 0, 0, ForceMode.VelocityChange);
     }
