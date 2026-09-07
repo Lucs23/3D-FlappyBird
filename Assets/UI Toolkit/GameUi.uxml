@@ -1,0 +1,17 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/GameUi.uss?fileID=7433441132597879392&amp;guid=3668fb2b4ac71e54bae56375a490e0cb&amp;type=3#GameUi"/>
+    <ui:VisualElement name="GameOver" enabled="true" class="GameOver" style="flex-grow: 1; transition-duration: 0s; opacity: 1; display: none;">
+        <ui:VisualElement name="ScoreDiv" enabled="true" class="ScoreRight" style="flex-grow: 1; -unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/Fonts/KLASIKAP.ttf?fileID=12800000&amp;guid=901ff3efa29e4394290f95ece3bcc7ac&amp;type=3#KLASIKAP&quot;); -unity-text-align: upper-center; translate: 0 342px; height: auto; width: auto;">
+            <ui:Label text="Score:" name="Score" style="font-size: 50px;"/>
+            <ui:Label text="1" name="ScoreInt" style="font-size: 40px;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="HighScoreDiv" class="HighScoreDiv" style="flex-grow: 1; -unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/Fonts/KLASIKAP.ttf?fileID=12800000&amp;guid=901ff3efa29e4394290f95ece3bcc7ac&amp;type=3#KLASIKAP&quot;); -unity-text-align: upper-center; translate: 0 74px;">
+            <ui:Label text="Highscore:" name="HighScore" style="font-size: 50px;"/>
+            <ui:Label text="0" name="HighScoreInt" style="font-size: 40px;"/>
+        </ui:VisualElement>
+        <ui:Button text="Reset Game" name="ResetButton" class="button" style="-unity-text-align: middle-center; align-self: center; translate: 0 -166px; border-top-left-radius: 7.5px; border-top-right-radius: 7.5px; border-bottom-right-radius: 7.5px; border-bottom-left-radius: 7.5px; -unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/Fonts/KLASIKAP.ttf?fileID=12800000&amp;guid=901ff3efa29e4394290f95ece3bcc7ac&amp;type=3#KLASIKAP&quot;);"/>
+        <ui:Label text="GAME OVER" name="GameOverMessage" style="-unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/Fonts/KLASIKAP.ttf?fileID=12800000&amp;guid=901ff3efa29e4394290f95ece3bcc7ac&amp;type=3#KLASIKAP&quot;); font-size: 60px; align-self: center; translate: 0 163px; display: flex; position: absolute;"/>
+    </ui:VisualElement>
+    <ui:Label text="0" name="ScoreDisplay" style="-unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/Fonts/KLASIKAP.ttf?fileID=12800000&amp;guid=901ff3efa29e4394290f95ece3bcc7ac&amp;type=3#KLASIKAP&quot;); font-size: 40px; display: flex; align-self: center; translate: 0 159px;"/>
+    <ui:Label text="Press any key to start." name="PressKey" style="-unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/Fonts/KLASIKAP.ttf?fileID=12800000&amp;guid=901ff3efa29e4394290f95ece3bcc7ac&amp;type=3#KLASIKAP&quot;); font-size: 50px; -unity-text-align: upper-center; align-self: center; translate: 0 267px; display: none;"/>
+</ui:UXML>

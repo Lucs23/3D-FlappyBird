@@ -3,12 +3,17 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private float currentSpeed = 0f;
+    private float currentSpeed;
     void Update()
     {
-        Vector3 temp = transform.position;
-        temp.z -= currentSpeed * Time.deltaTime;
-        transform.position = temp;
+        GameObject player = GameObject.FindGameObjectWithTag("player");
+        Collision collisionScript = player.GetComponent<Collision>();
+        if (collisionScript.gameOver == false)
+        {
+            Vector3 temp = transform.position;
+            temp.z -= currentSpeed * Time.deltaTime;
+            transform.position = temp;
+        }
     }
     public void SetSpeed(float speed)
     {

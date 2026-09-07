@@ -1,0 +1,34 @@
+:root {
+}
+
+
+
+.ScoreDiv {
+}
+
+.HighScoreDiv {
+}
+
+.button {
+    translate: 0 -352px;
+    scale: 2 2;
+    width: 100px;
+    height: 10px;
+    transition-duration: 0.15s;
+}
+
+.button:hover {
+    scale: 2.15 2.15 2.15;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+
+
+
+
+
+
+.OffScreen {
+}
+
+
