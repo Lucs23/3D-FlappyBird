@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using System.Collections;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -11,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private float JumpPower = 5f;
     [SerializeField] private float MovePower = 5f;
+    [SerializeField] private AudioSource audioSource;
+    public AudioClip flap;
     public GameObject GameUi;
     private UIDocument uiDoc;
     public UiEvents UiScript;
@@ -30,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(beginTimer < 5) beginTimer += Time.time / Time.time;
+        if (beginTimer < 5) beginTimer += Time.time / Time.time;
         position = transform.position;
         Vector3 viewPos = cam.WorldToViewportPoint(position);
         if (beginTimer > 2 && beginTimer < 5) rb.useGravity = true;
@@ -73,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collisionScript.gameOver == false)
         {
+            audioSource.PlayOneShot(flap);
             PressKey.style.display = DisplayStyle.None;
             rb.AddForce(0, JumpPower, 0, ForceMode.VelocityChange);
             rb.useGravity = true;
@@ -91,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
             rb.useGravity = true;
             float x = value.Get<float>();
             rb.AddForce(x * MovePower, 0, 0, ForceMode.VelocityChange);
-        
+
             collisionScript.gameOver = false;
         }
     }

@@ -14,6 +14,7 @@ public class Obstacles : MonoBehaviour
     public float introSpawns = 2;
     public Color[] colors;
     public GameObject GameUi;
+    public AudioClip point;
 
     private Label Score;
     private UIDocument uiDoc;
@@ -23,8 +24,10 @@ public class Obstacles : MonoBehaviour
     private float distanceChecker;
     private float timer = 0f;
     public int scoreCount = 0;
+    private AudioSource audioSource;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         uiDoc = GameUi.GetComponent<UIDocument>();
         Score = uiDoc.rootVisualElement.Q("ScoreDisplay") as Label;
 
@@ -136,6 +139,7 @@ public class Obstacles : MonoBehaviour
             Vector3 temp = obstacles[i].transform.position;
             if (temp.z < -2)
             {
+                audioSource.PlayOneShot(point);
                 temp = obstacles[i].transform.position;
                 temp.z = 10;
                 obstacles[i].transform.position = temp;

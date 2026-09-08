@@ -6,6 +6,8 @@ using UnityEngine.VFX;
 
 public class Collision : MonoBehaviour
 {
+    [SerializeField] private AudioSource audioSource;
+    public AudioClip hit;
     public GameObject GameUi;
     public Obstacles ObstaclesScript;
     private VisualElement GameOverScreen;
@@ -42,6 +44,7 @@ public class Collision : MonoBehaviour
     }
     void killPlayer()
     {
+        if (!gameOver) audioSource.PlayOneShot(hit);
         gameOver = true;
         animation.Play("Death");
         int Currentscore = ObstaclesScript.scoreCount;
